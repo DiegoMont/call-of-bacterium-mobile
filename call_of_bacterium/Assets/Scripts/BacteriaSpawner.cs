@@ -7,10 +7,6 @@ public class BacteriaSpawner : MonoBehaviour
     public int BACTERIAS_AT_THE_SAME_TIME;
     public int BACTERIAS_PER_WAVE;
     public GameObject[] BACTERIAS;
-    public float X_FROM;
-    public float X_TO;
-    public float Z_FROM;
-    public float Z_TO;
 
     private GameObject[] bacteriasInScene;
     private int countSpawnedBacterias;
@@ -42,8 +38,8 @@ public class BacteriaSpawner : MonoBehaviour
     }
 
     private Vector3 getRandomPosition() {
-        float x = Random.Range(X_FROM, X_TO);
-        float z = Random.Range(Z_FROM, Z_TO);
+        float x = Random.Range(transform.position.x - 4, transform.position.x + 4);
+        float z = Random.Range(transform.position.z -4, transform.position.z + 4);
         Vector3 position = new Vector3(x, 2, z);
         return position;
     }

@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class Bacteria : MonoBehaviour
 {
     private int health;
+    public float xpos;
+    public float ypos;
+    public float zpos;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +19,7 @@ public class Bacteria : MonoBehaviour
     void Update()
     {
         NavMeshAgent enemy = this.GetComponent<NavMeshAgent>();
-        Vector3 playerPosition = new Vector3(9, 4, -43);
-        enemy.SetDestination(playerPosition);
+        enemy.SetDestination(new Vector3(xpos, ypos, zpos));
     }
 
     public void takeDamage(int damage) {
