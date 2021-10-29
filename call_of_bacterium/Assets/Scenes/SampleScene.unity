@@ -694,6 +694,7 @@ MonoBehaviour:
   crosshair2Sprite: {fileID: 21300000, guid: a4318f31f2f36b64c960d084c9ef6a52, type: 3}
   pillSpawn: {fileID: 1849513179}
   pill: {fileID: 109090702503474247, guid: 62994eedb84886941a8543b9f96f471e, type: 3}
+  shootRate: 2
 --- !u!81 &1266594638
 AudioListener:
   m_ObjectHideFlags: 0
@@ -821,6 +822,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7724688745265633144, guid: fb7498cbe6c57da40b2fb92c90247965, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4189254568492754051, guid: fb7498cbe6c57da40b2fb92c90247965, type: 3}
       propertyPath: m_Name
       value: Jar_Pills_2_1

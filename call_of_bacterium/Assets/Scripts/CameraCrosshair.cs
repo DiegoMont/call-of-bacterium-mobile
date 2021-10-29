@@ -41,7 +41,7 @@ public class CameraCrosshair : MonoBehaviour
                 
                 // Change crosshair color and sprite
                 crosshairImg.sprite = crosshair2Sprite;
-                crosshairImg.color = Color.red;
+                crosshairImg.color = Color.green;
                 
                 // Shoot
                 if (Time.time >= nextShootTime)
@@ -55,7 +55,10 @@ public class CameraCrosshair : MonoBehaviour
         {
             // No enemy detected in front of the camera
             crosshairImg.sprite = crosshair1Sprite;
-            crosshairImg.color = Color.black;
+            crosshairImg.color = Color.white;
+            {
+                 
+            };
             gazedAtObject = null;
         }
     }

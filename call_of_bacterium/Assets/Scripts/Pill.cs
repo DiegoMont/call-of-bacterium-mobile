@@ -15,4 +15,12 @@ public class Pill : MonoBehaviour
         float speed = 10f;
         transform.position += shootDir * speed * Time.deltaTime;
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("ENEMY");
+            Destroy(gameObject);
+        }
+    }
 }
