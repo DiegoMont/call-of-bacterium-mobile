@@ -22,7 +22,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("Testing");
+        PhotonNetwork.LoadLevel("Lobby");
     }
     // Start is called before the first frame update
     void Start()
