@@ -12,7 +12,7 @@ public class Pill : MonoBehaviour
     }
 
     private void Update() {
-        float speed = 100f;
+        float speed = 10f;
         transform.position += shootDir * speed * Time.deltaTime;
     }
 }

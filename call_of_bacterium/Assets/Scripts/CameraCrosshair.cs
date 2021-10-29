@@ -35,7 +35,7 @@ public class CameraCrosshair : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
         {
-            // Enemy detected in front of the camera.
+            // Enemy detected in front of the camera
             if (gazedAtObject != hit.transform.gameObject && hit.transform.tag == "Enemy")
             {
                 
@@ -45,15 +45,15 @@ public class CameraCrosshair : MonoBehaviour
                 
                 // Shoot
                 if (Time.time >= nextShootTime)
-                {
-                    ShootPill(pillSpawn.position, hit.transform.position);
+                {   
+                    ShootPill(pillSpawn.position, hit.point);
                     nextShootTime = Time.time + 1f / shootRate;
                 }
             }
         }
         else
         {
-            // No GameObject detected in front of the camera.
+            // No enemy detected in front of the camera
             crosshairImg.sprite = crosshair1Sprite;
             crosshairImg.color = Color.black;
             gazedAtObject = null;
@@ -63,7 +63,7 @@ public class CameraCrosshair : MonoBehaviour
     private void ShootPill(Vector3 spawnPos, Vector3 endPos)
     {
         Transform pillTransform = Instantiate(pill, spawnPos, Quaternion.identity);
-        Vector3 shootDir = (endPos - spawnPos).normalized;
+        Vector3 shootDir = (endPos - spawnPos);
         pillTransform.GetComponent<Pill>().Setup(shootDir);
     }
 }
