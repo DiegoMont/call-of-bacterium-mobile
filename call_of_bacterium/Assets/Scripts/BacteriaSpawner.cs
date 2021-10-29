@@ -13,26 +13,31 @@ public class BacteriaSpawner : MonoBehaviour
     public float Z_TO;
 
     private GameObject[] bacteriasInScene;
+    private int countSpawnedBacterias;
 
     // Start is called before the first frame update
     void Start()
     {
         bacteriasInScene = new GameObject[BACTERIAS_AT_THE_SAME_TIME];
         for (int i = 0; i < BACTERIAS_AT_THE_SAME_TIME; i++)
-            bacteriasInScene[i] = (GameObject) spawnBacteria();
+            bacteriasInScene[i] = spawnBacteria();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        for (int i = 0; i < BACTERIAS_AT_THE_SAME_TIME; i++)
+            if (bacteriasInScene[i] == null && countSpawnedBacterias < BACTERIAS_PER_WAVE)
+                bacteriasInScene[i] = spawnBacteria();
     }
 
-    private Object spawnBacteria() {
+    private GameObject spawnBacteria() {
         GameObject bacteriaToSpawn = getRandomBacteria();
         Vector3 position = getRandomPosition();
+        Quaternion angle = getRandomAngle();
         Debug.Log(bacteriaToSpawn);
-        Object newBacteria = Instantiate(bacteriaToSpawn, position, Quaternion.identity);
+        GameObject newBacteria = (GameObject) Instantiate(bacteriaToSpawn, position, angle);
+        countSpawnedBacterias++;
         return newBacteria;
     }
 
@@ -46,5 +51,10 @@ public class BacteriaSpawner : MonoBehaviour
     private GameObject getRandomBacteria(){
         int index = Random.Range(0, BACTERIAS.Length);
         return BACTERIAS[index];
+    }
+
+    private Quaternion getRandomAngle() {
+        Quaternion angle = Quaternion.Euler(0f, Random.Range(0, 360f), 0);
+        return angle;
     }
 }
