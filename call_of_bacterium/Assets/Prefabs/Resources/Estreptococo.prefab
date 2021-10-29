@@ -6808,9 +6808,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c256d78b5d028409003436aa6100ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpos: 5
-  ypos: -0.5
-  zpos: -18
+  xpos: -5
+  ypos: 0
+  zpos: 7.5
 --- !u!195 &1013775656086023476
 NavMeshAgent:
   m_ObjectHideFlags: 0
