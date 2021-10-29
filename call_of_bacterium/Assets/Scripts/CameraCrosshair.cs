@@ -16,6 +16,8 @@ public class CameraCrosshair : MonoBehaviour
     [Header("Shoot options")]
     [SerializeField] private Transform pillSpawn;
     [SerializeField] private Transform pill;
+    [SerializeField] private float shootRate = 2f;
+    private float nextShootTime = 0f;
 
     private GameObject gazedAtObject = null;
     
@@ -36,14 +38,17 @@ public class CameraCrosshair : MonoBehaviour
             // Enemy detected in front of the camera.
             if (gazedAtObject != hit.transform.gameObject && hit.transform.tag == "Enemy")
             {
+                
                 // Change crosshair color and sprite
                 crosshairImg.sprite = crosshair2Sprite;
                 crosshairImg.color = Color.red;
-
+                
                 // Shoot
-                ShootPill(pillSpawn.position, hit.transform.position);
-                //Transform pillTransform = Instantiate(pill, pillSpawn.position, Quaternion.identity);
-
+                if (Time.time >= nextShootTime)
+                {
+                    ShootPill(pillSpawn.position, hit.transform.position);
+                    nextShootTime = Time.time + 1f / shootRate;
+                }
             }
         }
         else
